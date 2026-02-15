@@ -53,7 +53,7 @@ export default function About() {
                             {/* Main image */}
                             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=750&fit=crop&q=80"
+                                    src="https://www.blog.shadiyana.pk/wp-content/uploads/2023/05/775bc35f74dcf3a0d5afb8e6d488c637-1.jpg.webp"
                                     alt="MuslimahBride craftsmanship"
                                     className="w-full h-[400px] sm:h-[480px] object-cover"
                                     loading="lazy"

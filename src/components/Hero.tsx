@@ -92,7 +92,7 @@ export default function Hero() {
 
                     <div className="relative w-full max-w-md lg:max-w-lg overflow-hidden rounded-2xl">
                         <img
-                            src="https://images.unsplash.com/photo-1594552072238-b8a33785b261?w=600&h=820&fit=crop&q=80"
+                            src="https://i.pinimg.com/564x/48/b4/17/48b4174304f51b59b28a44f8697c5288.jpg"
                             alt="Elegant Muslim bride wearing a luxury wedding abaya"
                             className="w-full h-[500px] sm:h-[580px] lg:h-[640px] object-cover"
                             loading="eager"
