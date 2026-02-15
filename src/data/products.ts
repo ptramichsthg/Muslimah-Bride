@@ -26,11 +26,11 @@ export const products: Product[] = [
         longDescription: 'The Ivory Grace is our signature bridal veil, handcrafted from the finest silk chiffon adorned with delicate freshwater pearls. Each pearl is hand-sewn by our master artisans, creating a cascading effect that catches the light beautifully. Perfect for the modern modest bride who desires timeless elegance.',
         price: 1200,
         originalPrice: 1500,
-        image: 'https://images.unsplash.com/photo-1594552072238-b8a33785b261?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=2532&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1594552072238-b8a33785b261?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=2532&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1594552072238-b8a33785b261?q=80&w=2532&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=2532&auto=format&fit=crop',
         ],
         sizes: ['S', 'M', 'L', 'XL'],
         colors: [
@@ -51,10 +51,10 @@ export const products: Product[] = [
         description: 'Hand-embroidered gold thread on premium satin.',
         longDescription: 'The Golden Hour hijab features intricate gold thread embroidery on premium satin fabric. Inspired by the warm glow of sunset, this piece adds a touch of regal splendor to any bridal ensemble. The breathable fabric ensures comfort throughout your special day.',
         price: 890,
-        image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1628045934241-11880a84e568?q=80&w=2582&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1594552072238-b8a33785b261?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1628045934241-11880a84e568?q=80&w=2582&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=2582&auto=format&fit=crop',
         ],
         sizes: ['S', 'M', 'L'],
         colors: [
@@ -74,10 +74,10 @@ export const products: Product[] = [
         longDescription: 'The Pearl Mist is a complete nikah ensemble that includes a beautifully designed dress, matching hijab, and coordinating accessories. Crafted from premium chiffon with pearl accents throughout, this set ensures a cohesive and stunning bridal look.',
         price: 2400,
         originalPrice: 2800,
-        image: 'https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1644342337674-cceb6ba3028d?q=80&w=2609&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1644342337674-cceb6ba3028d?q=80&w=2609&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1596704017254-9b121068a8dc?q=80&w=2609&auto=format&fit=crop',
         ],
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         colors: [
@@ -98,10 +98,10 @@ export const products: Product[] = [
         description: 'Lightweight and breathable for unforgettable evenings.',
         longDescription: 'The Silk Whisper is designed for evening celebrations and special occasions. Made from ultra-lightweight silk, it drapes beautifully and feels like a gentle breeze. The subtle shimmer woven into the fabric adds an ethereal quality to your evening look.',
         price: 750,
-        image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1594552072238-b8a33785b261?q=80&w=2532&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1594552072238-b8a33785b261?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1594552072238-b8a33785b261?q=80&w=2532&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=2532&auto=format&fit=crop',
         ],
         sizes: ['S', 'M', 'L'],
         colors: [
@@ -120,10 +120,10 @@ export const products: Product[] = [
         description: 'Cathedral-length veil with lace border detailing.',
         longDescription: 'The Royal Drape is a cathedral-length veil featuring exquisite French lace borders. This statement piece extends dramatically behind the bride, creating an unforgettable silhouette. Each veil is custom-cut and finished with hand-sewn edges.',
         price: 1800,
-        image: 'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2564&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=2564&auto=format&fit=crop',
         ],
         sizes: ['M', 'L', 'XL'],
         colors: [
@@ -142,10 +142,10 @@ export const products: Product[] = [
         description: 'Luxurious satin hijab with crystal accents.',
         longDescription: 'The Satin Dream hijab combines the luxurious drape of premium satin with strategically placed Swarovski crystal accents. The crystals catch light from every angle, creating a dazzling effect that photographs beautifully.',
         price: 680,
-        image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2670&auto=format&fit=crop',
         images: [
-            'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&h=800&fit=crop&q=80',
-            'https://images.unsplash.com/photo-1585241645927-c7a8e5840c42?w=600&h=800&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=2670&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=2670&auto=format&fit=crop',
         ],
         sizes: ['S', 'M', 'L'],
         colors: [
