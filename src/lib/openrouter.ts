@@ -3,7 +3,7 @@ import { products } from '../data/products';
 
 const openai = new OpenAI({
     baseURL: "https://openrouter.ai/api/v1",
-    apiKey: import.meta.env.VITE_OPENROUTER_API_KEY,
+    apiKey: import.meta.env.VITE_OPENROUTER_API_KEY || "not-set",
     dangerouslyAllowBrowser: true // Demo only
 });
 
@@ -42,6 +42,11 @@ export const getAIResponse = async (messages: any[]) => {
     ];
 
     try {
+        if (!import.meta.env.VITE_OPENROUTER_API_KEY) {
+            console.warn("OpenRouter API Key is missing.");
+            return "Please set VITE_OPENROUTER_API_KEY in your environment variables to enable AI features.";
+        }
+
         const completion = await openai.chat.completions.create({
             model: "arcee-ai/trinity-large-preview:free",
             messages: apiMessages,
