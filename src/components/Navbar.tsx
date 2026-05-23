@@ -11,12 +11,16 @@ const navLinks = [
 ];
 
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
+import { products } from '../data/products';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [activeSection, setActiveSection] = useState('home');
-  const { cartCount } = useCart();
+  const { cartCount, setIsOpen: setCartOpen } = useCart();
+  const { wishlistCount } = useWishlist();
 
   // ScrollSpy: IntersectionObserver
   useEffect(() => {
@@ -115,15 +119,20 @@ export default function Navbar() {
             {/* Wishlist */}
             <a
               href="#gallery"
-              className="hidden md:flex w-10 h-10 items-center justify-center text-white/60 hover:text-accent transition-colors rounded-lg relative"
+              className="hidden md:flex relative w-10 h-10 items-center justify-center text-white/60 hover:text-accent transition-colors rounded-lg"
               aria-label="Wishlist"
             >
               <Heart size={18} />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4.5 h-4.5 bg-red-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center animate-bounce">
+                  {wishlistCount}
+                </span>
+              )}
             </a>
 
             {/* Cart */}
-            <a
-              href="#gallery"
+            <button
+              onClick={() => setCartOpen(true)}
               className="relative w-10 h-10 flex items-center justify-center text-white/60 hover:text-accent transition-colors rounded-lg"
               aria-label="Shopping bag"
             >
@@ -133,7 +142,7 @@ export default function Navbar() {
                   {cartCount}
                 </span>
               )}
-            </a>
+            </button>
 
             {/* Mobile Toggle */}
             <button
@@ -161,10 +170,39 @@ export default function Navbar() {
                   <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
                   <input
                     type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search for veils, hijabs, nikah sets..."
                     className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition-colors"
                     autoFocus
                   />
+                  
+                  {/* Search Results Dropdown */}
+                  {searchQuery.trim().length > 0 && (
+                    <div className="absolute top-full mt-2 w-full bg-dark border border-white/10 rounded-xl shadow-2xl max-h-72 overflow-y-auto">
+                      {products.filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase())).map((product) => (
+                        <a 
+                          key={product.id} 
+                          href="#gallery"
+                          onClick={() => {
+                            setSearchOpen(false);
+                            setSearchQuery('');
+                            handleNavClick('#gallery');
+                          }}
+                          className="flex items-center gap-4 p-3 hover:bg-white/5 border-b border-white/5 transition-colors"
+                        >
+                          <img src={product.image} alt={product.title} className="w-12 h-16 object-cover rounded-md" />
+                          <div>
+                            <p className="text-white text-sm font-bold">{product.title}</p>
+                            <p className="text-accent text-xs font-semibold">${product.price}</p>
+                          </div>
+                        </a>
+                      ))}
+                      {products.filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+                        <div className="p-4 text-center text-sm text-white/50">No products found.</div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

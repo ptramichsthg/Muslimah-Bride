@@ -66,7 +66,7 @@ export default function ShopCMS() {
                 </nav>
 
                 <div className="p-4 border-t border-slate-100">
-                    <button className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 rounded-xl transition-colors">
+                    <button onClick={() => window.location.href = '/'} className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 rounded-xl transition-colors">
                         <LogOut size={18} />
                         Logout
                     </button>
@@ -80,71 +80,86 @@ export default function ShopCMS() {
                         <h2 className="text-3xl font-heading font-bold text-slate-900">Product <span className="text-accent">Catalog</span></h2>
                         <p className="text-slate-500 mt-2">Manage your boutique's exclusive dress collection.</p>
                     </div>
-                    <button className="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+                    <button onClick={() => alert("Add New Dress clicked")} className="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
                         <Plus size={16} />
                         Add New Dress
                     </button>
                 </header>
 
-                {/* Search & Filter */}
-                <div className="bg-white p-2 rounded-2xl shadow-sm border border-slate-100 mb-8 flex items-center gap-2 max-w-2xl">
-                    <Search size={20} className="text-slate-400 ml-3" />
-                    <input
-                        type="text"
-                        placeholder="Search collections..."
-                        className="flex-1 px-2 py-2 bg-transparent outline-none text-sm text-slate-700 placeholder:text-slate-400"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                </div>
+                {selectedTab === 'products' ? (
+                    <>
+                        {/* Search & Filter */}
+                        <div className="bg-white p-2 rounded-2xl shadow-sm border border-slate-100 mb-8 flex items-center gap-2 max-w-2xl">
+                            <Search size={20} className="text-slate-400 ml-3" />
+                            <input
+                                type="text"
+                                placeholder="Search collections..."
+                                className="flex-1 px-2 py-2 bg-transparent outline-none text-sm text-slate-700 placeholder:text-slate-400"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
 
-                {/* Product Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {filteredProducts.map((product) => (
-                        <motion.div
-                            key={product.id}
-                            layoutId={`product-${product.id}`}
-                            className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
-                        >
-                            {/* Image */}
-                            <div className="aspect-3/4 relative overflow-hidden bg-slate-100">
-                                <img
-                                    src={product.image}
-                                    alt={product.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-slate-900">
-                                    {product.category}
-                                </div>
-                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                                    <button
-                                        onClick={() => handleEdit(product)}
-                                        className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
-                                        title="Edit"
-                                    >
-                                        <Edit2 size={16} />
-                                    </button>
-                                    <button
-                                        className="w-10 h-10 bg-white text-red-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
-                                        title="Delete"
-                                    >
-                                        <Trash2 size={16} />
-                                    </button>
-                                </div>
-                            </div>
+                        {/* Product Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {filteredProducts.map((product) => (
+                                <motion.div
+                                    key={product.id}
+                                    layoutId={`product-${product.id}`}
+                                    className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative"
+                                >
+                                    {/* Image */}
+                                    <div className="aspect-3/4 relative overflow-hidden bg-slate-100">
+                                        <img
+                                            src={product.image}
+                                            alt={product.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-slate-900">
+                                            {product.category}
+                                        </div>
+                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                                            <button
+                                                onClick={() => handleEdit(product)}
+                                                className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                                                title="Edit"
+                                            >
+                                                <Edit2 size={16} />
+                                            </button>
+                                            <button
+                                                onClick={() => alert(`Delete ${product.title}`)}
+                                                className="w-10 h-10 bg-white text-red-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                                                title="Delete"
+                                            >
+                                                <Trash2 size={16} />
+                                            </button>
+                                        </div>
+                                    </div>
 
-                            {/* Info */}
-                            <div className="p-5 text-center">
-                                <h3 className="font-heading font-bold text-slate-900 mb-1">{product.title}</h3>
-                                <p className="text-accent font-bold mb-3">${product.price.toLocaleString()}</p>
-                                <div className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest text-slate-300">
-                                    <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                                    Handcrafted Premium
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                                    {/* Info */}
+                                    <div className="p-5 text-center">
+                                        <h3 className="font-heading font-bold text-slate-900 mb-1">{product.title}</h3>
+                                        <p className="text-accent font-bold mb-3">${product.price.toLocaleString()}</p>
+                                        <div className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest text-slate-300">
+                                            <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                                            Handcrafted Premium
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </>
+                ) : (
+                    <div className="bg-white p-10 rounded-2xl shadow-sm border border-slate-100 text-center">
+                        <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                            {selectedTab === 'dashboard' && <LayoutDashboard size={24} />}
+                            {selectedTab === 'orders' && <ShoppingCart size={24} />}
+                            {selectedTab === 'analytics' && <BarChart3 size={24} />}
+                        </div>
+                        <h3 className="font-heading font-bold text-slate-900 text-xl mb-2 capitalize">{selectedTab} View</h3>
+                        <p className="text-slate-500">This module is currently under development or awaiting API integration.</p>
+                    </div>
+                )}
             </main>
 
             {/* Edit Modal */}

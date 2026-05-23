@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import { products } from '../data/products';
 import type { Product } from '../data/products';
+import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 
 const categories = ['All', 'Wedding Veil', 'Bridal Hijab', 'Nikah Set', 'Evening Veil'];
 
@@ -25,7 +27,8 @@ export default function Gallery() {
     const [selectedColor, setSelectedColor] = useState('');
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
-    const [wishlist, setWishlist] = useState<number[]>([]);
+    const { wishlist, toggleWishlist } = useWishlist();
+    const { addToCart: addContextCart, setIsOpen: setCartOpen } = useCart();
     const [cartMessage, setCartMessage] = useState('');
 
     const filtered = activeCategory === 'All'
@@ -45,16 +48,24 @@ export default function Gallery() {
         setCartMessage('');
     };
 
-    const toggleWishlist = (id: number) => {
-        setWishlist((prev) =>
-            prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
-        );
-    };
+
 
     const addToCart = () => {
         if (!selectedProduct) return;
+        
+        addContextCart({
+            id: selectedProduct.id,
+            title: selectedProduct.title,
+            price: selectedProduct.price,
+            image: selectedProduct.image,
+            color: selectedColor,
+            size: selectedSize,
+            quantity: quantity
+        });
+
         setCartMessage(`${selectedProduct.title} (${selectedSize}, ${selectedColor}) × ${quantity} added to bag!`);
         setTimeout(() => setCartMessage(''), 3000);
+        setCartOpen(true);
     };
 
     const nextImage = () => {
