@@ -1,7 +1,3 @@
-# MuslimahBride - Butik Gaun Pengantin Mewah
-
-![Project Banner](https://images.unsplash.com/photo-1546193430-c2d207739ed7?q=80&w=2532&auto=format&fit=crop)
-
 **MuslimahBride** adalah halaman arahan e-commerce premium yang dirancang khusus untuk butik kerudung dan gaun pengantin muslimah mewah. Proyek ini menampilkan antarmuka modern dan elegan dengan pengalaman berbelanja yang lancar, didukung oleh sistem penata gaya AI simulasi.
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
